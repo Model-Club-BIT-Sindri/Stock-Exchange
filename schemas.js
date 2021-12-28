@@ -19,3 +19,10 @@ module.exports.reviewSchema = Joi.object({
         
      }).required()
 })
+
+module.exports.answersSchema = Joi.object({
+    review: Joi.object({
+        answer: Joi.string(),
+        time: Joi.number().required().min(0),
+    })
+})
