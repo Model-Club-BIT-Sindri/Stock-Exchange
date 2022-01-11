@@ -53,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const sessionConfig = {
-    secret: "thisissupersecret",
+    secret: Date.now(),
     resave:false,
     saveUninitialized: true,
     cookie: {
@@ -91,6 +91,7 @@ app.use((req, res, next) =>{
     
 // })
 app.use('/', userRoutes);
+app.use('/addoholic', addoholic)
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 
